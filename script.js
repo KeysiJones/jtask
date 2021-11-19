@@ -5,18 +5,21 @@ let addButton = document.getElementById("btn");
 let taskList = document.getElementById("lista");
 /***********************FUNCTIONS****************************/
 
-let createNewTask = function () {
-  noTaskMessageSwitcher(0);
-  let valorAtualizado = newTaskInput.value;
+newTaskInput.focus();
 
+let createNewTask = function () {
   if (newTaskInput.value != "") {
+    noTaskMessageSwitcher();
+    let valorAtualizado = newTaskInput.value;
     let newTask = document.createElement("li");
     let taskInput = document.createElement("input");
     let link = document.createElement("a");
     let texto = document.createTextNode(valorAtualizado);
 
     taskInput.setAttribute("type", "checkbox");
-    taskInput.className = "mx-1";
+
+    taskList.className = "ml-2 mr-1 my-2";
+    taskInput.className = "mr-1";
 
     link.appendChild(texto);
     newTask.appendChild(taskInput);
@@ -34,24 +37,22 @@ const finishTask = function () {
   let task = this.parentElement.children[1];
   let taskCheckbox = this.parentElement.children[0];
   task.style.textDecoration = "line-through";
-  taskContainer.style.color = "white";
-  taskCheckbox.style.display = "none";
+  taskContainer.style.opacity = 0;
+  taskCheckbox.style.opacity = 0;
 
   setTimeout(() => {
     taskContainer.remove();
-    noTaskMessageSwitcher(1);
+    noTaskMessageSwitcher(0);
   }, 1000);
-
-  // setTimeout(() => {}, 1100);
 };
 
 const noTaskMessageSwitcher = (zeroElementCount) => {
   let updatedList = document.querySelector("#lista");
   let noTasks = document.querySelector("#no-tasks");
-  console.log(updatedList.childElementCount);
+
   updatedList.childElementCount <= zeroElementCount
     ? (noTasks.innerHTML =
-        "Congrats, you've finished all your tasks ! <br/> feel free to add more tasks if you want ;)")
+        "Congrats, you've finished all your tasks ! feel free to add more tasks if you want ;)")
     : (noTasks.innerHTML = "");
 };
 
