@@ -1,0 +1,36 @@
+li {
+  font-size: 1.2rem;
+  display: block;
+  color: black;
+  transition: all 2.5s;
+}
+
+ul {
+  font-size: 1rem;
+  padding: 5px;
+}
+
+button,
+input {
+  border-radius: 5px;
+  padding: 4px;
+  outline: none;
+}
+
+button {
+  padding: 5px;
+}
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+}
+
+#divPrincipal {
+  text-align: left;
+  margin-top: 6px;
+}
+
+#addTarefa {
+  text-align: center;
+}
